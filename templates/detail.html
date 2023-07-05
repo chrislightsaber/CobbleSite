@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pokemon Detail</title>
+</head>
+<body>
+    <h1>Pokemon Detail</h1>
+    <h3>Dex Entry: {{ entry['Dex Entry'].values[0] }}</h3>
+    <h2><strong>{{ entry['Name'].values[0] }}</strong></h2>
+    {% if not entry['ImageName'].isna().values[0] %}
+        <img src="{{ url_for('static', filename='CobbleDexImages/' + entry['ImageName'].values[0]) }}" alt="Pokemon Image">
+    {% else %}
+        <img src="{{ url_for('static', filename='CobbleDexImages/DefaultImage.png') }}" alt="Default Image">
+    {% endif %}
+    <h3>Type: {% if not entry['Type1'].isna().values[0] %}{{ entry['Type1'].values[0] }}{% endif %}
+        {% if not entry['Type2'].isna().values[0] %}/ {{ entry['Type2'].values[0] }}{% endif %}
+        {% if not entry['Type3'].isna().values[0] %}/ {{ entry['Type3'].values[0] }}{% endif %}
+    </h3>
+    <h3>Abilities: {{ entry['Abilities'].values[0] }}</h3>
+    <h3>Evolves: {{ entry['Evolves'].values[0] }}</h3>
+    <h3>Location: {{ entry['Location'].values[0] }}</h3>
+    <h3>Notes: {{ entry['Notes'].values[0] }}</h3>
+    <h3>Indexed: {{ entry['Indexed'].values[0] }}</h3>
+    <h3>Rarity: {{ entry['Rarity'].values[0] }}</h3>
+    <h3>Basestats: {{ entry['Basestats'].values[0] }}</h3>
+    <h3>EVYield: {{ entry['EVYield'].values[0] }}</h3>
+    <h3>ShinyImageName: {{ entry['ShinyImageName'].values[0] }}</h3>
+    <h3>ShinyIndexed: {{ entry['ShinyIndexed'].values[0] }}</h3>
+    <h3>Moves: {{ entry['Moves'].values[0] }}</h3>
+</body>
+</html>

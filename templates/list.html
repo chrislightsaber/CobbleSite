@@ -1,0 +1,19 @@
+<!-- list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pokemon List</title>
+</head>
+<body>
+    <h1>Pokemon List</h1>
+    <ul>
+        {% for entry in entries %}
+            <li>
+                <a href="{{ url_for('detail', name=entry['Name']) }}">
+                    {{ entry['Dex Entry'] }} - {{ entry['Name'] }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
